@@ -1,17 +1,16 @@
 : FB ( n -- )
-    1           \ 1 n
-    DO
-        -1
-        I
-        3 MOD
+    1 +
+    1           \ 1 n+1
+    DO          \ loop 1..n inclusive
+        -1      \ neither divisible by 3 nor 5 conditional
+        I 3 MOD
         0 = IF
-            0
+            DROP 0 \ modulo happened. don't print n
             ." FIZZ"
         THEN
-        I
-        5 MOD
+        I 5 MOD
         0 = IF
-            0
+            DROP 0 \ modulo happened. don't print n
             ." BUZZ"
         THEN
         IF
@@ -19,5 +18,4 @@
         ELSE
             SPACE
         THEN
-    LOOP
-    ;
+    LOOP ;
