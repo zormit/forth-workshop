@@ -1,24 +1,23 @@
 : FB ( n -- )
     1           \ 1 n
     DO
+        -1
         I
         3 MOD
         0 = IF
-            I
-            5 MOD
-            0 = IF
-                ." FIZZBUZZ "
-            ELSE
-                ." FIZZ "
-            THEN
+            0
+            ." FIZZ"
+        THEN
+        I
+        5 MOD
+        0 = IF
+            0
+            ." BUZZ"
+        THEN
+        IF
+            I .
         ELSE
-            I
-            5 MOD
-            0 = IF
-                ." BUZZ "
-            ELSE
-                I .
-            THEN
+            SPACE
         THEN
     LOOP
     ;
